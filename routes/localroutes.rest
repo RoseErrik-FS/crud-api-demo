@@ -23,3 +23,15 @@ Content-Type: application/json
 
 
 DELETE http://localhost:8000/students/64a67fcb158c13f1bcd1689d
+
+
+####
+
+
+PATCH http://localhost:8000/students/64a680598c7005740be65105
+Content-Type: application/json
+
+{
+    "name": "Errik Rose Updated",
+    "class": "DWA"
+}
