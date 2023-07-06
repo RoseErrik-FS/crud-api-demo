@@ -4,25 +4,24 @@ const router = express.Router();
 const Student = require("../models/student");
 
 const getStudent = async (req, res, next) => {
-  let student;
   try {
-    student = await Student.findById(req.params.id);
-    if (student === null) {
-      return res.status(404).json({ message: "Student not Found" });
+    const student = await Student.findById(req.params.id);
+    if (!student) {
+      return res.status(404).json({ message: "Student not found" });
     }
+    res.student = student;
+    next();
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
-  res.student = student;
-  next();
 };
 
 // get all
 router.get("/", async (req, res) => {
   try {
-    const student = await Student.find();
-    res.json(student);
-  } catch {
+    const students = await Student.find();
+    res.json(students);
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
