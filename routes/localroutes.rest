@@ -1,0 +1,25 @@
+GET http://localhost:8000/students
+
+
+###
+
+
+GET http://localhost:8000/students/64a67fcb158c13f1bcd1689d
+
+
+####
+
+
+POST http://localhost:8000/students
+Content-Type: application/json
+
+{
+    "name": "Errik Rose",
+    "class": "DWA"
+}
+
+
+###
+
+
+DELETE http://localhost:8000/students/64a67fcb158c13f1bcd1689d
