@@ -1,21 +1,20 @@
 {
-  "name": "crud-api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "API-Client",
+  "version": "1.00",
+  "engines": {
+    "node": "18.16.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "instal-reactjs": "npm install --prefix reactjs",
+    "install-api": "npm install --prefix api",
+    "build-reactjs": "npm run build --prefix reactjs",
+    "heroku-postbuild": "concurrently \"npm install-*\"; concurrently \"npm:build-*\";",
+    "start": "npm start --prefix api",
+    "dev:react": "concurrently --raw \"npm run api\" \"npm run react\"",
+    "react": "cd reactjs && npm run start",
+    "api": "cd api; nodemod server.js"
+  },
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "mongoose": "^7.3.1",
-    "nodemon": "^2.0.22",
-    "path": "^0.12.7"
+    "concurrently": "^8.2.0"
   }
 }
