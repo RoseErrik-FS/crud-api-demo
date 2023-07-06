@@ -24,7 +24,7 @@ app.use("/api/v1/students", studentRouter);
 app.use(express.static(path.join(__dirname, "../reactjs/build")));
 
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../reactjs/build", "index.jtml"));
+  res.sendFile(path.join(__dirname, "../reactjs/build", "index.html"));
 });
 
 app.listen(PORT, () => {
